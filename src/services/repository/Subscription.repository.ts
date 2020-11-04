@@ -10,4 +10,6 @@ export interface SubscriptionRepository {
   update(data: ISubscription): Promise<void>;
 
   delete(id: number): Promise<void>;
+
+  findByUserAndCode(user_id: number, code: string): Promise<ISubscription | null>;
 }
