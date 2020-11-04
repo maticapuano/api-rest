@@ -6,7 +6,7 @@
   "author": "Matías Capuano <maticapuano97@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
+    "dev": "npm run lint && ts-node-dev src/server.ts",
     "start": "ts-node src/server.ts",
     "lint": "eslint src/** --fix"
   },
