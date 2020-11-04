@@ -18,7 +18,14 @@
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
     "eslint": "^7.12.1",
+    "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "ts-node-dev": "^1.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
   }
 }
