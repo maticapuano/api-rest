@@ -1,7 +1,8 @@
 import mysqlPersistence from "@common/persistence/mysql.persistence";
 import { ISubscription } from "@services/repository/domain/Subscription";
+import { SubscriptionRepository } from "@services/repository/Subscription.repository";
 
-export class SubscriptionRepository {
+export class SubscriptionMysqlRepository implements SubscriptionRepository {
   public async all(): Promise<ISubscription[]> {
     const [rows] = await mysqlPersistence.execute("SELECT * FROM subscription ORDER BY id DESC");
 
