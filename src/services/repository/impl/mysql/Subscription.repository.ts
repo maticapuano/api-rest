@@ -22,6 +22,22 @@ export class SubscriptionMysqlRepository implements SubscriptionRepository {
     return null;
   }
 
+  public async findByUserAndCode(user_id: number, code: string): Promise<ISubscription | null> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [
+      rows,
+    ]: any[] = await mysqlPersistence.execute("SELECT * FROM subscription WHERE id=? AND code=?", [
+      user_id,
+      code,
+    ]);
+
+    if (rows.length) {
+      return rows[0] as ISubscription;
+    }
+
+    return null;
+  }
+
   public async create(data: ISubscription): Promise<void> {
     const { user_id, code, amount, cron } = data;
     const now = new Date();
