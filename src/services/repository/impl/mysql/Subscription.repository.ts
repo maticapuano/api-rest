@@ -7,4 +7,17 @@ export class SubscriptionRepository {
 
     return rows as ISubscription[];
   }
+
+  public async find(id: number): Promise<ISubscription | null> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [rows]: any[] = await mysqlPersistence.execute("SELECT * FROM subscription WHERE id=?", [
+      id,
+    ]);
+
+    if (rows.length) {
+      return rows[0] as ISubscription;
+    }
+
+    return null;
+  }
 }
