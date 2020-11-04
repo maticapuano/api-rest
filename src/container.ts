@@ -1,7 +1,7 @@
+import { TestService } from "@services/test.service";
 import { asClass, createContainer } from "awilix";
 import { scopePerRequest } from "awilix-express";
 import { Application } from "express";
-import { TestService } from "./services/test.service";
 
 export default (app: Application): Application => {
   const container = createContainer({ injectionMode: "CLASSIC" });

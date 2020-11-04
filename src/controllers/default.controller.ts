@@ -1,6 +1,6 @@
 import { GET, route } from "awilix-express";
 import { Request, Response } from "express";
-import { TestService } from "../services/test.service";
+import { TestService } from "@services/test.service";
 
 @route("/")
 export class DefaultController {
