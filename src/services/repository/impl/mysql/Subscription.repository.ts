@@ -30,4 +30,14 @@ export class SubscriptionRepository {
       [user_id, code, amount, cron, now]
     );
   }
+
+  public async update(data: ISubscription): Promise<void> {
+    const { id, user_id, code, amount, cron } = data;
+    const now = new Date();
+
+    await mysqlPersistence.execute(
+      "UPDATE subscription SET user_id=?,code=?,amount=?,cron=?, updated_at=? WHERE id=?",
+      [user_id, code, amount, cron, now, id]
+    );
+  }
 }
