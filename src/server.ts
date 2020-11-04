@@ -1,3 +1,7 @@
 import { app } from "./app";
+import dotenv from "dotenv";
+import { PORT } from "./config";
 
-app.listen(3000, () => console.log("Server ready on port 3000"));
+dotenv.config();
+
+app.listen(PORT, () => console.log("Server ready on port 3000"));
