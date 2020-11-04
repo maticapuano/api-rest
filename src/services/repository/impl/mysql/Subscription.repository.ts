@@ -20,4 +20,14 @@ export class SubscriptionRepository {
 
     return null;
   }
+
+  public async create(data: ISubscription): Promise<void> {
+    const { user_id, code, amount, cron } = data;
+    const now = new Date();
+
+    await mysqlPersistence.execute(
+      "INSERT INTO subscription (user_id,code,amount,cron,created_at) VALUES(?,?,?,?,?)",
+      [user_id, code, amount, cron, now]
+    );
+  }
 }
