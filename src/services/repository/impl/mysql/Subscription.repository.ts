@@ -40,4 +40,8 @@ export class SubscriptionRepository {
       [user_id, code, amount, cron, now, id]
     );
   }
+
+  public async delete(id: number): Promise<void> {
+    await mysqlPersistence.execute("DELETE FROM subscription WHERE id=?", [id]);
+  }
 }
