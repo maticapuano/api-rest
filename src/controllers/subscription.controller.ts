@@ -2,10 +2,13 @@ import { DELETE, GET, POST, PUT, route } from "awilix-express";
 import { Request, Response } from "express";
 import { SubscriptionService } from "@services/subscription.service";
 import { SubscriptionCreateDto, SubscriptionUpdateDto } from "dto/subscription.dto";
+import { BaseController } from "@common/controllers/base.controller";
 
 @route("/subscriptions")
-export class SubscriptionController {
-  constructor(private readonly subscriptionService: SubscriptionService) {}
+export class SubscriptionController extends BaseController {
+  constructor(private readonly subscriptionService: SubscriptionService) {
+    super();
+  }
 
   @GET()
   public async all(req: Request, res: Response): Promise<Response> {
